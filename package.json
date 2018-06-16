@@ -1,0 +1,24 @@
+{
+  "name": "dpd-sparkpost-mail",
+  "version": "0.9.0",
+  "description": "Simple integration of sparkpost mail with deployd",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm install dpd-sparkpost-mail --save"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavotero7/dpd-sparkpost-mail.git"
+  },
+  "keywords": [
+    "deployd",
+    "sparkpost",
+    "nodejs"
+  ],
+  "author": "Gustavo Otero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gustavotero7/dpd-sparkpost-mail/issues"
+  },
+  "homepage": "https://github.com/gustavotero7/dpd-sparkpost-mail#readme"
+}
