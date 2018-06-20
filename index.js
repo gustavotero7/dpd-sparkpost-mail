@@ -44,6 +44,11 @@ SparkPostMail.prototype.handle = function(ctx, next) {
   }
  
   var client = new SparkPost(this.config.APIKey);
+  
+  var scheduled_time = new Date()
+  scheduled_time.setMinutes(scheduled_time.getMinutes()+(ctx.body.delay_minutes||0))
+  scheduled_time.setHours(scheduled_time.getHours()+(ctx.body.delay_hours||0))
+
   var content;
   if (ctx.body.template_id) {
     content = {
@@ -59,9 +64,11 @@ SparkPostMail.prototype.handle = function(ctx, next) {
   
   client.transmissions.send({
     options: {
-      sandbox: this.config.sandbox
+      sandbox: this.config.sandbox,
+      start_time: scheduled_time.toISOString()
     },
     content:content,
+    substitution_data: ctx.body.substitution_data || {},
     recipients: [
       {address: ctx.body.to}
     ]
